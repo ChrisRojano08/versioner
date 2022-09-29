@@ -1,0 +1,24 @@
+name: Autoversion
+on:
+ push:
+    branches: [ dev ]
+jobs:
+  autoversion:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: setup git config
+      run: |
+        git config user.name "autoversioner"
+        git config user.email "autoversioner@softitlan.mx"
+
+    - name: Autoversion
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16.x
+        cache: 'npm'
+    - run: npm install
+    - run: npm run autoversion
+    - name: commit
+      run: |
+        git push origin dev
