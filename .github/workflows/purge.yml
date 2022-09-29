@@ -1,0 +1,13 @@
+name: 'Nightly cleanup'
+on:
+  schedule:
+    - cron: '30 2 * * 3,5'
+
+jobs:
+  delete-artifacts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kolpav/purge-artifacts-action@v1
+        with:
+          token: ${{ github.token }}
+          expire-in: 0days
