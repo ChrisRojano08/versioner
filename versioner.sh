@@ -1,9 +1,7 @@
 #!/bin/sh
-
-git checkout master
-git pull origin master
-
 git log --author="autoversioner" -n 1
+git log -n 1
+
 version=`git log --author="autoversioner" -n 1`
 echo $version > version.txt
 
