@@ -25,7 +25,10 @@
   "homepage": "https://github.com/ChrisRojano08/versioner.git#readme",
   "devDependencies": {
     "shelljs": "^0.8.5",
-    "standard-version": "^9.3.2",
-    "ssh2shell": "^1.9.8"
+    "ssh2shell": "^1.9.8",
+    "standard-version": "^9.3.2"
+  },
+  "dependencies": {
+    "shelljs-plugin-inspect": "^0.3.0"
   }
 }
