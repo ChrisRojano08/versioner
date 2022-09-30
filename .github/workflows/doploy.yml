@@ -19,6 +19,10 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm run versioner
-    #- name: commit
-    #  run: |
-    #    git push origin master
+    - name: commit
+      run: |
+        echo `git log --author="autoversioner" -n 1` > version.txt
+        mkdir `tail -c 6 version.txt`
+        cp -r files/* `tail -c 6 version.txt`/
+        ls
+        git push origin master
