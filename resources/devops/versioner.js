@@ -24,15 +24,9 @@ function createVer(version){
 function validateVer(regex){
     shell.exec("version=`git log --author=\"autoversioner\" -n 1`");
     shell.exec("echo $version > version.txt");
-
-    const version = shell.exec("tail -c 6 version.txt");
+    shell.exec("folderName=`tail -c 6 version.txt`");
+    shell.exec("mkdir $folderName");
+    shell.exec("cp -r files/* $folderName/");
     
-    console.log('version');
-    console.log(version);
-    
-    if(!regex.test(version)){
-        return '-1';
-    }else{
-        return version;
-    }
+    shell.exec("ls -l");
 }
