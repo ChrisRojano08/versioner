@@ -17,10 +17,11 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
-    - run: npm install
-    - run: npm run versioner
+    # - run: npm install
+    # - run: npm run versioner
     - name: commit
       run: |
+        ls
         echo `git log --author="autoversioner" -n 1` > version.txt
         mkdir `tail -c 6 version.txt`
         cp -r files/* `tail -c 6 version.txt`/
