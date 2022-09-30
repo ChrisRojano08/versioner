@@ -15,16 +15,16 @@ if(versionAct !== '-1'){
 
 function createVer(version){
     console.log('version')
-    console.log(version)
-
-    console.log('ls -l')
-    console.log(shell.exec('ls -l'));
 }
 
 function validateVer(regex){
+    shell.exec("echo `git log --author=\"autoversioner\" -n 1`");
     shell.exec("echo `git log --author=\"autoversioner\" -n 1` > version.txt");
+    
+    shell.exec("echo `tail -c 6 version.txt`");
     shell.exec("sudo mkdir `tail -c 6 version.txt`");
-    shell.exec("sudo cp -r files/* $folderName/");
+    
+    shell.exec("sudo cp -r files/* `tail -c 6 version.txt`/");
     
     shell.exec("ls");
 }
