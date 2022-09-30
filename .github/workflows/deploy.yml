@@ -14,11 +14,12 @@ jobs:
     - name: Autoversion
       uses: actions/setup-node@v2
       with:
+        ref: ${{ github.event.pull_request.head.sha }}
+        fetch-depth: 0
         node-version: 16.x
         cache: 'npm'
       # - run: npm install
       # - run: npm run versioner
     - name: commit
       run: |
-        ls
         bash versioner.sh
