@@ -5,6 +5,7 @@
   "main": "index.html",
   "scripts": {
     "autoversion": "node resources/devops/autoversion.js",
+    "versioner": "node resources/devops/versioner.js",
     "release": "standard-version"
   },
   "repository": {
