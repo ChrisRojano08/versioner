@@ -1,4 +1,8 @@
 #!/bin/sh
+
+git pull
+git pull origin master
+
 git log --author=autoversioner -n 1
 git log -n 1
 
