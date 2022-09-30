@@ -1,5 +1,5 @@
 #!/bin/sh
-git log --author="autoversioner" -n 1
+git log --author=autoversioner -n 1
 git log -n 1
 
 version=`git log --author="autoversioner" -n 1`
