@@ -25,7 +25,7 @@ function validateVer(regex){
     shell.exec("version=`git log --author=\"autoversioner\" -n 1`");
     shell.exec("echo $version > version.txt");
     
-    const ultimoCommit = readTextFile("version.txt");
+    const ultimoCommit = fsPromises.readFile("version.txt", 'utf-8');
 
     console.log('ultimoCommit');
     console.log(ultimoCommit);
