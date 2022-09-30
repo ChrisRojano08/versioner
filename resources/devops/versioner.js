@@ -23,6 +23,10 @@ function createVer(version){
 
 function validateVer(commit, regex){
     const ultimoCommit = shell.exec(commit);
+
+    console.log('ultimoCommit');
+    console.log(ultimoCommit);
+
     const result = ultimoCommit.indexOf("chore(release)");
 
     if(result === -1){
