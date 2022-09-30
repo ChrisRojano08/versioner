@@ -22,23 +22,13 @@ function createVer(version){
 }
 
 function validateVer(regex){
-    const fs = require("fs");
-    
     shell.exec("version=`git log --author=\"autoversioner\" -n 1`");
     shell.exec("echo $version > version.txt");
-    
-    const ultimoCommit = fs.readFile("version.txt", 'utf-8');
 
     console.log('ultimoCommit');
     console.log(ultimoCommit);
 
-    const result = ultimoCommit.indexOf("chore(release)");
-
-    if(result === -1){
-        return '-1';
-    }
-
-    const version = ultimoCommit.substring(result+16, result+21);
+    const version = shell.exec("tail -c 6 version.txt");
     
     console.log('version');
     console.log(version);
