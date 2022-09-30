@@ -22,7 +22,10 @@ function createVer(version){
 }
 
 function validateVer(regex){
-    const ultimoCommit = shell.exec("git log --author=\"autoversioner\" ").trim();
+    shell.exec("version=`git log --author=\"autoversioner\" -n 1`");
+    shell.exec("echo $version > version.txt");
+    
+    const ultimoCommit = readTextFile("version.txt");
 
     console.log('ultimoCommit');
     console.log(ultimoCommit);
