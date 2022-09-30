@@ -1,1 +1,0 @@
-commit 5824ae2b4954f53bced077ba4241abe8b533d7c8 Author: autoversioner <autoversioner@softitlan.mx> Date: Fri Sep 30 04:07:46 2022 +0000 chore(release): 0.2.3
