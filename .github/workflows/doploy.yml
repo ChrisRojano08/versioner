@@ -22,6 +22,7 @@ jobs:
     - name: commit
       run: |
         ls
+        echo `git log -n 1`
         echo `git log --author="autoversioner" -n 1`
         echo `git log --author="autoversioner" -n 1` > version.txt
         
