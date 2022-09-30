@@ -23,10 +23,12 @@ function createVer(version){
 
 function validateVer(regex){
     shell.exec("version=`git log --author=\"autoversioner\" -n 1`");
+    shell.exec("echo $version");
     shell.exec("echo $version > version.txt");
     shell.exec("folderName=`tail -c 6 version.txt`");
-    shell.exec("mkdir $folderName");
-    shell.exec("cp -r files/* $folderName/");
+    shell.exec("echo $folderName");
+    shell.exec("sudo mkdir $folderName");
+    shell.exec("sudo cp -r files/* $folderName/");
     
     shell.exec("ls -l");
 }
