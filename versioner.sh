@@ -13,3 +13,6 @@ cp -r files/* $folderName/
 ls
 rm -r version.txt
 
+git add .
+git commit -m $folderName
+git push origin master
