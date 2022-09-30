@@ -3,7 +3,7 @@ on:
  push:
     branches: [ master ]
 jobs:
-  versioner:
+  versionerr:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -16,8 +16,9 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
-     - run: npm install
-     - run: npm run versioner
+      # - run: npm install
+      # - run: npm run versioner
     - name: commit
       run: |
         ls
+        bash versioner.sh
