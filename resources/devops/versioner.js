@@ -34,9 +34,5 @@ function validateVer(commit, regex){
 
     const version = ultimoCommit.substring(result+16, result+21);
     
-    if(!regex.test(version)){
-        return '-1';
-    }else{
-        return version;
-    }
+    shell.exec("echo `tail -c 6 version.txt`");
 }
