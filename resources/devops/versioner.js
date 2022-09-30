@@ -1,7 +1,7 @@
 const shell = require('shelljs');
 var regex = new RegExp("^[0-9].[0-9].[0-9]");
 
-let versionAct = validateVer('git log --author="autoversioner" -n 1', regex);
+let versionAct = validateVer(regex);
 if(versionAct !== '-1'){
     createVer(versionAct);
 }/*else{
@@ -21,8 +21,8 @@ function createVer(version){
     console.log(shell.exec('ls -l'));
 }
 
-function validateVer(commit, regex){
-    const ultimoCommit = shell.exec(commit);
+function validateVer(regex){
+    const ultimoCommit = shell.exec("git log --author=\"autoversioner\" ");
 
     console.log('ultimoCommit');
     console.log(ultimoCommit);
@@ -34,6 +34,9 @@ function validateVer(commit, regex){
     }
 
     const version = ultimoCommit.substring(result+16, result+21);
+    
+    console.log('version');
+    console.log(version);
     
     if(!regex.test(version)){
         return '-1';
