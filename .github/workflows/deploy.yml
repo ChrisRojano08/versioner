@@ -19,11 +19,11 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
-      # - run: npm install
-      # - run: npm run versioner
+    - run: npm install
+    - run: npm run versioner
     - name: commit
       run: |
-        bash versioner.sh
+        ls -l
     - name: Save in
       uses: ad-m/github-push-action@master
       with:
