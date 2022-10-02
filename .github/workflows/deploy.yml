@@ -6,7 +6,10 @@ jobs:
   versionerr:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - name: checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
     - name: setup git config
       run: |
         git config user.name "autoversioner"
@@ -16,9 +19,12 @@ jobs:
       with:
         node-version: 16.x
         cache: 'npm'
-      # - run: npm install
-      # - run: npm run versioner
+       - run: npm install
+       - run: npm run versioner
     - name: commit
       run: |
-        ls
-        bash versioner.sh
+        ls -l
+    - name: Save in
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.TOKEN }}
