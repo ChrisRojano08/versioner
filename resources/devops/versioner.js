@@ -36,7 +36,7 @@ function createVer(version){
 function existsFolder(version){
     const listF = shell.exec("ls");
 
-    if(listF.indexOf(version) === -1){ return true; }
+    if(listF.indexOf(version) !== -1){ return true; }
     return false;
 }
 
