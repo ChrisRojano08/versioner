@@ -15,9 +15,6 @@ if(versionAct !== '-1'){
 }
 
 function createVer(version){
-    console.log('version')
-    console.log(version)
-
     shell.exec("mkdir "+version);
 
     if(existsFolder(version)){
