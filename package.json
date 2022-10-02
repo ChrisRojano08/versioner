@@ -1,6 +1,6 @@
 {
   "name": "switch-colors",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "This application includes modules for the creation, consultation and assignment of activities.",
   "main": "index.html",
   "scripts": {
