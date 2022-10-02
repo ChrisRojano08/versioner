@@ -48,7 +48,7 @@ function validateVer(commit, regex){
         return '-1';
     }
 
-    const version = ultimoCommit.substring(result+16, result+21);
+    const version = ultimoCommit.substring(result+16, ultimoCommit.length-1);
     
     if(!regex.test(version)){
         return '-1';
