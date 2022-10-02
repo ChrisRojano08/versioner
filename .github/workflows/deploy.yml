@@ -3,7 +3,7 @@ on:
  push:
     branches: [ master ]
 jobs:
-  versionerr:
+  versioner:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
@@ -21,9 +21,6 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm run versioner
-    - name: commit
-      run: |
-        ls -l
     - name: Save in
       uses: ad-m/github-push-action@master
       with:
