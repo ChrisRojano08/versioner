@@ -1,7 +1,7 @@
 name: Versioner
 on:
  push:
-    branches: [ master ]
+    branches: [ release ]
 jobs:
   versioner:
     runs-on: ubuntu-latest
