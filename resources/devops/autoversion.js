@@ -1,5 +1,5 @@
 const shell = require('shelljs');
-const ultimoCommit = shell.exec('git log -n 1');
+const ultimoCommit = shell.exec('git log -n 2');
 const keyA = '[';
 const commit = ultimoCommit.replace(/(\r\n|\n|\r)/gm, "<->");
 const commitSplit = commit.split('<->');
