@@ -21,7 +21,3 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm run versioner
-    - name: Save in
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.TOKEN }}
