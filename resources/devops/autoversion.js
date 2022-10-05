@@ -1,7 +1,7 @@
 const shell = require('shelljs');
-const ultimoCommit = shell.exec('git log -n 1');
-const keyA = 'Merge pull request ';
-const commit = ultimoCommit.stdout.replace(/(\r\n|\n|\r)/gm, "<->");
+const ultimoCommit = shell.exec('git log -n 2');
+const keyA = '[';
+const commit = ultimoCommit.replace(/(\r\n|\n|\r)/gm, "<->");
 const commitSplit = commit.split('<->');
 const [filter=''] = commitSplit
     .filter(item =>
@@ -10,18 +10,19 @@ const [filter=''] = commitSplit
 console.log("Filter",filter);
 
 switch (true) {
-    case filter.includes('major-'):
+    case filter.includes('[major]'):
+    case filter.includes('[release]'):
         console.log('version X.0.0');
         shell.exec('npm run release -- --release-as major');
         break;
-    case filter.includes('feature-'):
+    case filter.includes('[feature]'):
         console.log('version 0.X.0');
         shell.exec('npm run release -- --release-as minor');
         break;
-    case filter.includes('fix-'):
-    case filter.includes('hotfix-'):
-    case filter.includes('patch-'):
-    case filter.includes('minor-'):
+    case filter.includes('[fix]'):
+    case filter.includes('[hotfix]'):
+    case filter.includes('[patch]'):
+    case filter.includes('[minor]'):
         console.log('version 0.0.X');
         shell.exec('npm run release -- --release-as patch');
         break;
